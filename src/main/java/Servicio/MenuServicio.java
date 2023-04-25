@@ -8,12 +8,14 @@ public class MenuServicio {
 
     AutorServicio autorServicio = new AutorServicio();
 
-    public void Menu() throws Exception {
+    public void menu() throws Exception {
         try {
             System.out.println("\n" + "-------MENÚ------\n"
                     + "1) Registrar un Autor.\n"
                     + "2) Búsqueda de Autor por nombre. \n"
-                    + "3) Salir.");
+                    + "3) Búsqueda de Autor por Id.\n"
+                    + "4) Búsqueda de todos los Autores.\n"
+                    + "5) Salir.");
 
             System.out.println("Seleccione una opcion:");
             String respuesta = entrada.next();
@@ -33,24 +35,39 @@ public class MenuServicio {
             switch (respuesta) {
 
                 case  "1":
-                autorServicio. crearAutor();
-                Menu();
-
-                break;
+                    autorServicio. crearAutor();
+                    menu();
+                    break;
 
                 case "2":
-                    System.out.println("Consulta finalizada");
+                    autorServicio.mostrarAutorPorNombre();
+                    menu();
+                    break;
 
-                break;
+                case "3":
+                    autorServicio.mostrarAutorPorId();
+                    menu();
+                    break;
 
+                case "4":
+                    autorServicio.mostrarAutores();
+                    menu();
+                    break;
+
+                case "5":
+                    System.out.println("Saliendo del menú...");
+                    break;
 
                 default:
                     System.out.println("Ingrese una opcion valida");
-                Menu();
+                menu();
             }
 
         } catch (Exception e) {
             throw new Exception();
         }
     }
+
+
+
 }

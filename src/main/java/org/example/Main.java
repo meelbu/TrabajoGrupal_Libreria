@@ -9,7 +9,7 @@ public class Main {
         MenuServicio menuServicio = new MenuServicio();
 
         try {
-            menuServicio.Menu();
+            menuServicio.menu();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
