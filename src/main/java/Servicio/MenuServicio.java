@@ -13,9 +13,10 @@ public class MenuServicio {
             System.out.println("\n" + "-------MENÚ------\n"
                     + "1) Registrar un Autor.\n"
                     + "2) Búsqueda de Autor por nombre. \n"
-                    + "3) Búsqueda de Autor por Id.\n"
-                    + "4) Búsqueda de todos los Autores.\n"
-                    + "5) Salir.");
+                    + "3) Búsqueda de Autor por apellido. \n"
+                    + "4) Búsqueda de Autor por Id.\n"
+                    + "5) Búsqueda de todos los Autores.\n"
+                    + "6) Salir.");
 
             System.out.println("Seleccione una opcion:");
             String respuesta = entrada.next();
@@ -43,18 +44,23 @@ public class MenuServicio {
                     autorServicio.mostrarAutorPorNombre();
                     menu();
                     break;
-
                 case "3":
+                    autorServicio.mostrarAutorPorApellido();
+                    menu();
+                    break;
+
+
+                case "4":
                     autorServicio.mostrarAutorPorId();
                     menu();
                     break;
 
-                case "4":
+                case "5":
                     autorServicio.mostrarAutores();
                     menu();
                     break;
 
-                case "5":
+                case "6":
                     System.out.println("Saliendo del menú...");
                     break;
 

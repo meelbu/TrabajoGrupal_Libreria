@@ -25,7 +25,7 @@ public class AutorDao {
 
     public List<Autor> obtenerPorNombre(String nombre) throws Exception{
         try {
-            return em.createQuery("SELECT a FROM Autor a WHERE a.nombreAutor LIKE :name", Autor.class)
+            return em.createQuery("SELECT a FROM Autor a WHERE a.nombre_autor LIKE :name", Autor.class)
                     .setParameter("name", nombre)
                     .getResultList();
         } catch (Exception e) {
@@ -33,6 +33,17 @@ public class AutorDao {
         }
 
     }
+    public List<Autor> obtenerPorApellido(String apellido) throws Exception{
+        try {
+            return em.createQuery("SELECT a FROM Autor a WHERE a.apellido_autor LIKE :name", Autor.class)
+                    .setParameter("name", apellido)
+                    .getResultList();
+        } catch (Exception e) {
+            throw new Exception("Error al buscar autor por apellido");
+        }
+
+    }
+
 
     public Autor obtenerPorId(Integer Id) throws Exception {
 

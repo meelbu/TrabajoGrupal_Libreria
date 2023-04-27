@@ -18,8 +18,11 @@ public class AutorServicio {
             System.out.println("Ingrese el nombre del autor");
             String nombre = entrada.next();
             autor.setNombreAutor(nombre);
-            if (nombre==null || nombre.trim().isEmpty()){
-                throw new Exception("Debe contener un nombre");
+            System.out.println("Ingrese el apellido del autor");
+            String apellido = entrada.next();
+            autor.setApellidoAutor(apellido);
+            if (nombre==null || apellido== null || nombre.trim().isEmpty()|| apellido.trim().isEmpty()){
+                throw new Exception("Debe contener un nombre y/o un apellido");
             }else {
                 System.out.println("Se guardó exitosamente.");
             }
@@ -56,6 +59,33 @@ public class AutorServicio {
         }
 
     }
+    public void mostrarAutorPorApellido() throws Exception {
+
+        try {
+            System.out.println("Ingrese el apellido del autor que desea buscar");
+            String apellido = entrada.next();
+
+            List<Autor> autores = autorDao.obtenerPorApellido(apellido);
+
+            if (autores.isEmpty()) {
+                throw new Exception("La lista de autores está vacía");
+            } else {
+
+                System.out.println("\n" + "Resultado: ");
+                System.out.printf("%-10s%-20s\n", "Id", "Apellido");
+
+                for (Autor autor1 : autores) {
+                    System.out.printf("%-10s%-20s\n",autor1.getId(),
+                            autor1.getApellidoAutor());
+                }
+            }
+
+        } catch (Exception e) {
+            throw new Exception("No se encontro un autor con ese apellido");
+        }
+
+    }
+
 
     public void mostrarAutorPorId() throws Exception {
 
