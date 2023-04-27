@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class AutorServicio {
 
-    Scanner entrada = new Scanner(System.in);
+    Scanner entrada = new Scanner(System.in).useDelimiter("\n");
 
     private AutorDao autorDao = new AutorDao();
 
@@ -55,7 +55,7 @@ public class AutorServicio {
             }
 
         } catch (Exception e) {
-            throw new Exception("No se encontro un autor con ese nombre");
+            throw new Exception("No se encontró un autor con ese nombre");
         }
 
     }
@@ -81,7 +81,7 @@ public class AutorServicio {
             }
 
         } catch (Exception e) {
-            throw new Exception("No se encontro un autor con ese apellido");
+            throw new Exception("No se encontró un autor con ese apellido");
         }
 
     }
@@ -96,7 +96,7 @@ public class AutorServicio {
             Autor autor = autorDao.obtenerPorId(Id);
 
             if (autor == null) {
-                throw new Exception("La lista de autores esta vacia");
+                throw new Exception("La lista de autores esta vacía");
             } else {
                 System.out.println("\n" + "Resultado: ");
                 System.out.printf("%-15s%-40s\n", "Id", "Nombre");
@@ -105,7 +105,7 @@ public class AutorServicio {
                         autor.getNombreAutor());
             }
         } catch (Exception e) {
-            throw new Exception("No se encontro un autor con ese id");
+            throw new Exception("No se encontró un autor con ese id");
         }
     }
 
@@ -120,11 +120,11 @@ public class AutorServicio {
             } else {
 
                 System.out.println("\n" + "Lista de Autores");
-                System.out.printf("%-15s%-40s\n", "ID", "Nombre");
+                System.out.printf("%-15s%-40s%-40s\n", "ID", "Nombre", "Apellido");
 
                 for (Autor autor : autores) {
-                    System.out.printf("%-15s%-40s\n", autor.getId(),
-                            autor.getNombreAutor());
+                    System.out.printf("%-15s%-40s%-40s\n", autor.getId(),
+                            autor.getNombreAutor(), autor.getApellidoAutor());
                 }
             }
         }catch (Exception e) {
@@ -132,6 +132,50 @@ public class AutorServicio {
         }
     }
 
+    public void editarAutor() throws Exception{
+
+        try{
+
+            System.out.println("Ingrese el Id del autor que desea editar: ");
+            Integer Id = entrada.nextInt();
+
+            Autor autor1 = autorDao.obtenerPorId(Id);
+
+            System.out.println("\n" + "Ingrese el nuevo nombre del autor:");
+            String nombre = entrada.next();
+
+            autor1.setNombreAutor(nombre);
+
+            System.out.println("\n" + "Ingrese el nuevo apellido del autor:");
+            String apellido = entrada.next();
+
+            autor1.setApellidoAutor(nombre);
+
+            System.out.println("\n" + "¡Se editó exitosamente!");
+
+            autorDao.actualizar(autor1);
+
+        }catch (Exception e) {
+            throw new Exception("No se encontró un autor con ese ID ");
+        }
+    }
+
+    public void eliminarRegistro() throws Exception{
+        try{
+
+            System.out.println("\n" + "Ingrese el Id del autor que desea eliminar: ");
+            Integer Id = entrada.nextInt();
+
+            Autor autor = autorDao.obtenerPorId(Id);
+
+            System.out.println("\n" + "¡Se eliminó exitosamente!");
+
+            autorDao.eliminar(autor);
+
+        }catch (Exception e){
+            throw new Exception("No se encontró un autor con ese ID ");
+        }
+    }
 
 
 

@@ -16,15 +16,17 @@ public class MenuServicio {
                     + "3) Búsqueda de Autor por apellido. \n"
                     + "4) Búsqueda de Autor por Id.\n"
                     + "5) Búsqueda de todos los Autores.\n"
-                    + "6) Salir.");
+                    + "6) Editar un autor.\n"
+                    + "7) Eliminar un autor.\n"
+                    + "8) Salir.");
 
-            System.out.println("Seleccione una opcion:");
+            System.out.println("Seleccione una opción:");
             String respuesta = entrada.next();
 
             OpcionSeleccionada(respuesta);
 
         } catch (Exception e) {
-            throw new Exception("Debe contener una opcion valida");
+            throw new Exception("Debe contener una opción válida");
         }
 
     }
@@ -61,11 +63,21 @@ public class MenuServicio {
                     break;
 
                 case "6":
+                    autorServicio.editarAutor();
+                    menu();
+                    break;
+
+                case "7":
+                    autorServicio.eliminarRegistro();
+                    menu();
+                    break;
+
+                case "8":
                     System.out.println("Saliendo del menú...");
                     break;
 
                 default:
-                    System.out.println("Ingrese una opcion valida");
+                    System.out.println("Ingrese una opción válida");
                 menu();
             }
 
