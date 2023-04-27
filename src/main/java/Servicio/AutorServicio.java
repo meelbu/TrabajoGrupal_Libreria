@@ -149,7 +149,7 @@ public class AutorServicio {
             System.out.println("\n" + "Ingrese el nuevo apellido del autor:");
             String apellido = entrada.next();
 
-            autor1.setApellidoAutor(nombre);
+            autor1.setApellidoAutor(apellido);
 
             System.out.println("\n" + "¡Se editó exitosamente!");
 
