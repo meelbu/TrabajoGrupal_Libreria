@@ -7,6 +7,7 @@ public class MenuServicio {
     Scanner entrada = new Scanner(System.in);
 
     AutorServicio autorServicio = new AutorServicio();
+    LibroServicio libroServicio = new LibroServicio ();
 
     public void menu() throws Exception {
         try {
@@ -18,7 +19,12 @@ public class MenuServicio {
                     + "5) Búsqueda de todos los Autores.\n"
                     + "6) Editar un autor.\n"
                     + "7) Eliminar un autor.\n"
-                    + "8) Salir.");
+                    + "8) Rregistrar un libro.\n"
+                    + "9) Lista de libros registrados.\n"
+                    + "10) Buscar libro por ISBN.\n"
+                    + "11) Buscar libro por título.\n"
+                    + "12) Eliminar un libro.\n"
+                    + "13) Salir.");
 
             System.out.println("Seleccione una opción:");
             String respuesta = entrada.next();
@@ -73,6 +79,31 @@ public class MenuServicio {
                     break;
 
                 case "8":
+                    libroServicio.crearLibro();
+                    menu();
+                    break;
+
+                case "9":
+                    libroServicio.MostrarLibros();
+                    menu();
+                    break;
+
+                case "10":
+                    libroServicio.MostrarLibroPorISBN();
+                    menu();
+                    break;
+
+                case "11":
+                    libroServicio.MostrarLibroPorTitulo();
+                    menu();
+                    break;
+
+                case "12":
+                    libroServicio.eliminarRegistro();
+                    menu();
+                    break;
+
+                case "13":
                     System.out.println("Saliendo del menú...");
                     break;
 
