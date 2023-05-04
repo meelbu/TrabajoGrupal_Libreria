@@ -9,7 +9,7 @@ import java.util.List;
 
 public class LibroDao {
 
-    private final EntityManager em = Persistence.createEntityManagerFactory("MiPersistence").createEntityManager();
+    private final EntityManager em = Persistence.createEntityManagerFactory("PersistenciaL").createEntityManager();
 
     public void Insertar(Libro libro) throws Exception {
         try {

@@ -76,18 +76,18 @@ public class LibroServicio {
         try {
             List<Libro> libros = librodao.obtenerTodos();
 
-            if (libros. isEmpty()) {
+            if (libros.isEmpty()) {
                 throw new Exception("No hay registros de libros");
 
             } else  {
 
                 System.out.println("\n" + "Lista de Libros");
-                System.out.printf("%-20s%-25s%-20s%-20s%-20s\n", "ISBN", "Titulo"
-                        , "Autor", "Año", "Ejemplares");
+                System.out.printf("%-20s%-25s%-20s%-20s%-20s%-20s\n", "ISBN", "Titulo"
+                        , "Nombre Autor", "Apellido Autor", "Año", "Ejemplares");
 
                 for (Libro libro : libros) {
                     System.out.printf("%-20s%-25s%-20s%-20s%-20s\n", libro.getIsbn(),
-                            libro.getTitulo(), libro.getAutor().getNombreAutor(),
+                            libro.getTitulo(), libro.getAutor().getNombreAutor(), libro.getAutor().getApellidoAutor(),
                             libro.getAnio(), libro.getEjemplares());
 
                 }

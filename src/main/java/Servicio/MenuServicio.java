@@ -19,7 +19,7 @@ public class MenuServicio {
                     + "5) Búsqueda de todos los Autores.\n"
                     + "6) Editar un autor.\n"
                     + "7) Eliminar un autor.\n"
-                    + "8) Rregistrar un libro.\n"
+                    + "8) Registrar un libro.\n"
                     + "9) Lista de libros registrados.\n"
                     + "10) Buscar libro por ISBN.\n"
                     + "11) Buscar libro por título.\n"
