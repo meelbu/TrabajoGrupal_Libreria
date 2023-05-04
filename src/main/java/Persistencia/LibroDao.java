@@ -1,5 +1,6 @@
 package Persistencia;
 
+import Entidad.Autor;
 import Entidad.Libro;
 
 import javax.persistence.EntityManager;
@@ -59,6 +60,22 @@ public class LibroDao {
             throw new Exception("Error al eliminar todos los libros");
         }
     }
+
+    public void actualizar(Libro libro) throws Exception {
+
+        try {
+
+            em.getTransaction().begin();
+            em.merge(libro);
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw new Exception("Error al actualizar libro");
+        }
+    }
+
+
 
 
 

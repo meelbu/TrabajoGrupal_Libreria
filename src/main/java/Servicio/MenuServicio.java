@@ -24,7 +24,8 @@ public class MenuServicio {
                     + "10) Buscar libro por ISBN.\n"
                     + "11) Buscar libro por título.\n"
                     + "12) Eliminar un libro.\n"
-                    + "13) Salir.");
+                    + "13) Editar un libro.\n"
+                    + "14) Salir.");
 
             System.out.println("Seleccione una opción:");
             String respuesta = entrada.next();
@@ -104,6 +105,11 @@ public class MenuServicio {
                     break;
 
                 case "13":
+                    libroServicio.editarLibro();
+                    menu();
+                    break;
+
+                case "14":
                     System.out.println("Saliendo del menú...");
                     break;
 

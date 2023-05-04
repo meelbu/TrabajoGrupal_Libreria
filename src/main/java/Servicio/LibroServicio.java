@@ -162,6 +162,39 @@ public class LibroServicio {
         }
     }
 
+    public void editarLibro() throws Exception{
+
+        try{
+
+            System.out.println("Ingrese el ISBN del libro que desea editar: ");
+            Long ISBN = entrada.nextLong();
+
+            Libro libro1 = librodao.obtenerPorIsbn(ISBN);
+
+            System.out.println("\n" + "Ingrese el nuevo título del libro:");
+            String titulo = entrada.next();
+
+            libro1.setTitulo(titulo);
+
+            System.out.println("\n" + "Ingrese el año de edición:");
+            Integer anio = entrada.nextInt();
+
+            libro1.setAnio(anio);
+
+            System.out.println("\n" + "Ingrese la cantidad de ejemplares:");
+            Integer ejemplares = entrada.nextInt();
+
+            libro1.setEjemplares(ejemplares);
+
+            System.out.println("\n" + "¡Se editó exitosamente!");
+
+            librodao.actualizar(libro1);
+
+        }catch (Exception e) {
+            throw new Exception("No se encontró un libro con ese ISBN ");
+        }
+    }
+
 
 
 }
