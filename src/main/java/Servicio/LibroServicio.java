@@ -86,7 +86,7 @@ public class LibroServicio {
                         , "Nombre Autor", "Apellido Autor", "Año", "Ejemplares");
 
                 for (Libro libro : libros) {
-                    System.out.printf("%-20s%-25s%-20s%-20s%-20s\n", libro.getIsbn(),
+                    System.out.printf("%-20s%-25s%-20s%-20s%-20s%-20s\n", libro.getIsbn(),
                             libro.getTitulo(), libro.getAutor().getNombreAutor(), libro.getAutor().getApellidoAutor(),
                             libro.getAnio(), libro.getEjemplares());
 

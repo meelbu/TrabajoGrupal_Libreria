@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MenuServicio {
 
-    Scanner entrada = new Scanner(System.in);
+    Scanner entrada = new Scanner(System.in).useDelimiter("\n");
 
     AutorServicio autorServicio = new AutorServicio();
     LibroServicio libroServicio = new LibroServicio ();
